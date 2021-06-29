@@ -1,105 +1,40 @@
-# ![Node/Express/Mongoose Example App](project-logo.png)
+# Moonpay
+This Repo contains solutions to all the problems. 1-3 are in the root folder with Dockerfile and docker-compose, .docker dir has the seed script. Built a Makefile for the ease of use locally when testing and the makefile itself is quite self explantory. 
 
-[![Build Status](https://travis-ci.org/anishkny/node-express-realworld-example-app.svg?branch=master)](https://travis-ci.org/anishkny/node-express-realworld-example-app)
-
-> ### NestJS codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) API spec.
-
-
-----------
-
-# Getting started
-
-## Installation
-
-Clone the repository
-
-    git clone https://github.com/lujakob/nestjs-realworld-example-app.git
-
-Switch to the repo folder
-
-    cd nestjs-realworld-example-app
-    
-Install dependencies
-    
-    npm install
-
-Copy config file and set JsonWebToken secret key
-
-    cp src/config.ts.example src/config.ts
-    
-----------
-
-## Database
-
-The codebase contains example of database abstractions, namely [TypeORM](http://typeorm.io/) 
-    
-The branch `master` implements TypeORM with a mySQL database.
-
-----------
-
-##### TypeORM
-
-----------
-
-Create a new mysql database with the name `nestjsrealworld`\
-(or the name you specified in the ormconfig.json)
-
-Copy TypeORM config example file for database settings
-
-    cp ormconfig.json.example
-    
-Set mysql database settings in ormconfig.json
-
-    {
-      "type": "mysql",
-      "host": "localhost",
-      "port": 3306,
-      "username": "your-mysql-username",
-      "password": "your-mysql-password",
-      "database": "nestjsrealworld",
-      "entities": ["src/**/**.entity{.ts,.js}"],
-      "synchronize": true
-    }
-    
-Start local mysql server and create new database 'nestjsrealworld'
-
-On application start, tables for all entities will be created.
-
-----------
+Used K6 tool for benchmark testing for an API endpoint.
 
 
-## NPM scripts
+## Technologies:
+- AWS ECR
+- AWS ALB
+- AWS RDS
+- AWS ECS
+- Gitub Actions
+- Docker Compose
+- K6
+- Terraform
 
-- `npm start` - Start application
-- `npm run start:watch` - Start application in watch mode
-- `npm run test` - run Jest test runner 
-- `npm run start:prod` - Build application
+## Usage
 
-----------
+Use the Makefile to build the dockerfile, test, and deploy the container.
 
-## API Specification
+```Bash
+$ make run-local
+$ make destroy-local
+$ make test-benchmark 
+```
+Assuming AWS profile is setup correctly for credentials you can run run below to deploy the stack to AWS.
 
-This application adheres to the api specifications set by the [Thinkster](https://github.com/gothinkster) team. This helps mix and match any backend with any other frontend without conflicts.
+```Bash
+$ cd terraform
+$ AWS_PROFILE=aws_test_profile make init plan apply
+```
 
-> [Full API Spec](https://github.com/gothinkster/realworld/tree/master/api)
+## Github Action
 
-More information regarding the project can be found here https://github.com/gothinkster/realworld
+The folder contains regular CI workflows in github actions. 
 
-----------
 
-## Start application
+## Terraform
 
-- `npm start`
-- Test api with `http://localhost:3000/api/articles` in your favourite browser
-
-----------
-
-# Authentication
- 
-This applications uses JSON Web Token (JWT) to handle authentication. The token is passed with each request using the `Authorization` header with `Token` scheme. The JWT authentication middleware handles the validation and authentication of the token. Please check the following sources to learn more about JWT.
-
-----------
- 
-# Swagger API docs
-
-This example repo uses the NestJS swagger module for API documentation. [NestJS Swagger](https://github.com/nestjs/swagger) - [www.swagger.io](https://swagger.io/)        
+The terraform folder is for the 5 problem with makefile inside. Although its still not finished product but only managed that much with the time i could spend on the problem.

@@ -6,7 +6,7 @@ run-local:
 
 # tears down local docker containers
 destroy-local:
-	docker-compose up
+	docker-compose down
 
 # Assumes being ran on MAC OSx
 test-benchmark:
