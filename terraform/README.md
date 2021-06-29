@@ -1,6 +1,6 @@
-# IAM module
+# Module
 
-Module that allows creation of IAM specific to the problem given.
+Module that allows creation of ECS, ECR and various aws resources specific to the problem given.
 
 ## Prerequisites
 
