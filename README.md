@@ -14,6 +14,14 @@ Used K6 tool for benchmark testing for an API endpoint.
 - K6
 - Terraform
 
+## Repo
+
+The repo can be located in the below link
+
+```
+https://github.com/hassanejaz/nestjs-realworld-example-app
+```
+
 ## Usage
 
 Use the Makefile to build the dockerfile, test, and deploy the container.
@@ -37,4 +45,4 @@ The folder contains regular CI workflows in github actions.
 
 ## Terraform
 
-The terraform folder is for the 5 problem with makefile inside. Although its still not finished product but only managed that much with the time i could spend on the problem.
+The terraform folder is for the 5 problem with makefile and readme inside. Although its still not finished product but only managed that much with the time i could spend on the problem.
