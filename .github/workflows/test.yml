@@ -64,4 +64,5 @@ jobs:
       - name: 'tfsec'
         run: | 
               cd terraform
+              make init_no_backend
               make validate
