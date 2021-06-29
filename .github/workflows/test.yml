@@ -30,8 +30,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: git config --global url."https://$GITHUB_TOKEN:x-oauth-basic@github.com".insteadOf "ssh://git@github.com"
-      - name: 'Tests'
-        run: make test_fmt_validate
+      - name: 'init'
+        run: make init_no_backend
+      - name: 'validate'
+        run: make validate
 
   SAST:
     runs-on: ubuntu-20.04
