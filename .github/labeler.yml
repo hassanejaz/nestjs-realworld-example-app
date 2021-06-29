@@ -19,3 +19,10 @@
 changelog:
   - any: ['CHANGELOG.md']
     all: ['!src/main.js']
+
+repo:
+  - ./*
+
+source:
+  - any: ['src/**/*', '!src/docs/*']
+  
