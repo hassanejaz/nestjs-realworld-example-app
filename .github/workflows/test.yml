@@ -56,4 +56,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: git config --global url."https://$GITHUB_TOKEN:x-oauth-basic@github.com".insteadOf "ssh://git@github.com"
       - name: 'tfsec'
-        run: make test_sast
+        run: make security_analysis

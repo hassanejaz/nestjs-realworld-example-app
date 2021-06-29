@@ -52,5 +52,7 @@ security_analysis:
 format: 
 	cd terraform; terraform fmt -recursive -diff . ;
 
-local-build: cd terraform; init validate format lint security_analysis
+local-build: init validate format lint security_analysis
+
+test_fmt_validate: validate_no_backend lint format
 
