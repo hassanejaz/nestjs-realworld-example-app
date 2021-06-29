@@ -30,8 +30,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: git config --global url."https://$GITHUB_TOKEN:x-oauth-basic@github.com".insteadOf "ssh://git@github.com"
-      - name: 'Tests'
-        run: make test_fmt_validate
+      - name: 'init'
+        run: | 
+              cd terraform 
+              make init_no_backend
+      - name: 'validate'
+        run: |
+              cd terraform
+              make validate
 
   SAST:
     runs-on: ubuntu-20.04
@@ -56,4 +62,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: git config --global url."https://$GITHUB_TOKEN:x-oauth-basic@github.com".insteadOf "ssh://git@github.com"
       - name: 'tfsec'
-        run: make test_sast
+        run: | 
+              cd terraform
+              make init_no_backend
+              make validate

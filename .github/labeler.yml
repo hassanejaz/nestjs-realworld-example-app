@@ -18,4 +18,10 @@
 # Add 'frontend` label to any change to *.js files as long as the `main.js` hasn't changed
 changelog:
   - any: ['CHANGELOG.md']
-    all: ['!src/main.js']
+
+repo:
+  - ./*
+
+source:
+  - any: ['src/**/*', '!src/docs/*']
+  
